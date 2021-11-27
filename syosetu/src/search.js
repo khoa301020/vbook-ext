@@ -1,28 +1,3 @@
-// function execute(key, page) {
-//     if (!page) page = '1';
-
-//     var doc = Http.get("https://yomou.syosetu.com/search.php?&search_type=novel&order_former=search&order=new&notnizi=1").params({word: key, p: page}).html();
-//     if (doc) {
-//         var el = doc.select(".searchkekka_box");
-//         var novelList = [];
-//         var next = doc.select(".pager b +a").text()
-
-//         for (var i = 0; i < el.size(); i++) {
-//             var e = el.get(i);
-//             novelList.push({
-//                 name: e.select(".novel_h a").text(),
-//                 link: e.select(".novel_h a").attr("href"),
-//                 description: e.select(".left").text(),
-//                 cover: 'https://cdn.discordapp.com/attachments/694132681994272778/914069250262569000/default.png',
-//                 host: ""
-//             });
-
-//         }
-
-//         return Response.success(novelList, next);
-//     }
-//     return null;
-// }
 function execute(key, page) {
     if (!page) page = '1';
 
@@ -30,7 +5,7 @@ function execute(key, page) {
     if (doc) {
         var el = doc.select(".searchkekka_box");
         var novelList = [];
-        var next = doc.select(".pager b +a").first().text()
+        var next = doc.select(".pager b +a").text()
 
         for (var i = 0; i < el.size(); i++) {
             var e = el.get(i);
@@ -38,10 +13,12 @@ function execute(key, page) {
                 name: e.select(".novel_h a").text(),
                 link: e.select(".novel_h a").attr("href"),
                 description: e.select(".left").text(),
-                cover: 'https://cdn.discordapp.com/attachments/694132681994272778/914069250262569000/default.png',
-                host: "https://ncode.syosetu.com"
+                cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/not_found.png',
+                host: ""
             });
+
         }
+
         return Response.success(novelList, next);
     }
     return null;

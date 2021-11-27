@@ -10,7 +10,7 @@ function execute(url) {
         name: e.select('.rank_h a').text(),
         link: e.select('.rank_h a').attr('href'),
         description: e.select('.ranking_list .rank_table .point').text(),
-        cover: 'https://cdn.discordapp.com/attachments/694132681994272778/914069250262569000/default.png',
+        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/not_found.png',
         host: '',
       });
     }
