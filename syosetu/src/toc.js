@@ -12,7 +12,7 @@ function execute(url) {
   }
   if (data.length == 0) {
     data.push({
-      name: "「短編」・" + doc.select('.novel_title').text(),
+      name: "「短編」・「" + doc.select('.novel_title').text() + "」",
       url: url,
       host: '',
     });
