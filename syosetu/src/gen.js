@@ -10,7 +10,7 @@ function execute(url) {
         name: e.select('.rank_h a').text(),
         link: e.select('.rank_h a').attr('href'),
         description: e.select('.ranking_list .rank_table .point').text(),
-        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.png',
+        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
         host: '',
       });
     }

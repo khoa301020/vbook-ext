@@ -15,7 +15,7 @@ function execute(key, page) {
         name: e.select('.novel_h a').text(),
         link: e.select('.novel_h a').attr('href'),
         description: e.select('.left').text(),
-        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.png',
+        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
         host: '',
       });
     }
