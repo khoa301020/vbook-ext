@@ -6,7 +6,7 @@
     "source": "https://yomou.syosetu.com",
     "regexp": "((yomou)|(ncode)).syosetu.com\/(.*)$",
     "description": "小説を読もう！",
-    "local": "ja-JP",
+    "local": "ja_JP",
     "language": "javascript"
   },
   "script": {
