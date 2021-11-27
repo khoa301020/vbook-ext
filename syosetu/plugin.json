@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Syosetu",
     "author": "Beast666",
-    "version": 1,
+    "version": 2,
     "source": "https://yomou.syosetu.com",
     "regexp": "((yomou)|(ncode)).syosetu.com\/(.*)$",
     "description": "小説を読もう！",

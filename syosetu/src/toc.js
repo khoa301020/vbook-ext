@@ -1,16 +1,15 @@
 function execute(url) {
-    var doc = Http.get(url).html();
-    if (doc) {
-        var list = [];
-        var chapters = doc.select("dl.novel_sublist2");
-        for (var i = 0; i < chapters.size(); i++) {
-            var chapter = chapters.get(i);
-            list.push({
-                name: chapter.select(".subtitle a").text(),
-                url: chapter.select(".subtitle a").attr("href"),
-                host: "https://ncode.syosetu.com"
-            });
-        }
-        return Response.success(list)
+    const doc = Http.get(url).html();
+    var allChap = doc.select(".novel_sublist2 a")
+    const data = [];
+    for (var i = 0;i < allChap.size(); i++) {
+        var chap = allChap.get(i);
+        data.push({
+            name: chap.select("a").text(),
+            url: chap.attr("href"),
+            host: "http://ncode.syosetu.com"
+        })
     }
+
+    return Response.success(data);
 }
