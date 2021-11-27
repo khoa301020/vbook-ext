@@ -7,7 +7,8 @@ function execute(url) {
     for (var i = 0; i < el.size(); i++) {
       var e = el.get(i);
       novelList.push({
-        name: e.select('.rank_h a').text(),
+        //name: e.select('.rank_h a').text(),
+        name: e.select('.rank_h a').attr('href'),
         link: e.select('.rank_h a').attr('href'),
         description: e.select('.ranking_list .rank_table .point').text(),
         cover: 'https://cdn.discordapp.com/attachments/694132681994272778/914069250262569000/default.png',

@@ -10,7 +10,5 @@ function execute(url) {
       detail: "",
       ongoing: ""
     });
-  } else {
-    alert('Error');
   }
 }

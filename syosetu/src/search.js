@@ -10,7 +10,8 @@ function execute(key, page) {
         for (var i = 0; i < el.size(); i++) {
             var e = el.get(i);
             novelList.push({
-                name: e.select(".novel_h a").text(),
+                //name: e.select(".novel_h a").text(),
+                name: e.select(".novel_h a").attr("href"),
                 link: e.select(".novel_h a").attr("href"),
                 description: e.select(".left").text(),
                 cover: 'https://cdn.discordapp.com/attachments/694132681994272778/914069250262569000/default.png',
