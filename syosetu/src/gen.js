@@ -1,22 +1,18 @@
 function execute(url) {
-  var doc = Http.get(url).html();
-  if (doc) {
-    var el = doc.select('.ranking_list');
-    var novelList = [];
+  var json = JSON.parse(fetch(url).text());
 
-    for (var i = 0; i < el.size(); i++) {
-      var e = el.get(i);
-      novelList.push({
-        name: e.select('.rank_h a').text(),
-        link: e.select('.rank_h a').attr('href'),
-        description: e.select('.ranking_list .rank_table .point').text(),
-        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
-        host: '',
-      });
-    }
+  var novelList = [];
 
-    return Response.success(novelList);
+  for (var i = 1; i < json.length; i++) {
+    var novel = json[i];
+    point = url.includes('favnovelcnt') ? novel.fav_novel_cnt.toString() : novel.global_point.toString();
+    novelList.push({
+      name: novel.title,
+      link: novel.ncode,
+      description: point + 'pt・' + (json[1].novel_type == 2 ? '短編' : novel.general_all_no + '部分'),
+      cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
+      host: 'https://ncode.syosetu.com/',
+    });
   }
-
-  return null;
+  return Response.success(novelList);
 }

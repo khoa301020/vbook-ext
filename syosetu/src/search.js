@@ -1,26 +1,19 @@
-function execute(key, page) {
-  if (!page) page = '1';
+function execute(key) {
+  var api = 'https://api.syosetu.com/novelapi/api/?title=1&word=' + key + '&out=json&lim=500';
+  var json = JSON.parse(fetch(api).text());
 
-  var doc = Http.get('https://yomou.syosetu.com/search.php?&search_type=novel&order_former=search&order=new&notnizi=1')
-    .params({ word: key, p: page })
-    .html();
-  if (doc) {
-    var el = doc.select('.searchkekka_box');
-    var novelList = [];
-    var next = doc.select('.pager b +a').text();
+  var novelList = [];
 
-    for (var i = 0; i < el.size(); i++) {
-      var e = el.get(i);
-      novelList.push({
-        name: e.select('.novel_h a').text(),
-        link: e.select('.novel_h a').attr('href'),
-        description: e.select('.left').text(),
-        cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
-        host: '',
-      });
-    }
-
-    return Response.success(novelList, next);
+  for (var i = 1; i < json.length; i++) {
+    var novel = json[i];
+    novelList.push({
+      name: novel.title,
+      link: novel.ncode,
+      description:
+        novel.global_point.toString() + 'pt・' + (json[1].novel_type == 2 ? '短編' : novel.general_all_no + '部分'),
+      cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
+      host: 'https://ncode.syosetu.com/',
+    });
   }
-  return null;
+  return Response.success(novelList);
 }

@@ -1,5 +1,5 @@
 function execute(url) {
-  var doc = Http.get(url).html();
+  var doc = fetch(url).html();
   if (doc) {
     return Response.success(doc.select('div#novel_honbun').html());
   }

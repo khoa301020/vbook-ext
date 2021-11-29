@@ -1,17 +1,17 @@
 {
-    "metadata": {
-        "author": "Beast666",
-        "description": "<(\")"
-    },
-    "data": [
-      {
-        "name": "Shousetsu wo Yomou!",
-        "author": "Beast666",
-        "path": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/plugin.zip",
-        "version": 3,
-        "source": "https://yomou.syosetu.com/",
-        "icon": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/icon.png",
-        "description": "小説を読もう！"
-      }
-    ]
+  "metadata": {
+    "author": "Beast666",
+    "description": "<(\")"
+  },
+  "data": [
+    {
+      "name": "Shousetsu wo Yomou!",
+      "author": "Beast666",
+      "path": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/plugin.zip",
+      "version": 4,
+      "source": "https://yomou.syosetu.com/",
+      "icon": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/icon.png",
+      "description": "小説を読もう！"
+    }
+  ]
 }

@@ -1,5 +1,5 @@
 function execute(url) {
-  const doc = Http.get(url).html();
+  const doc = fetch(url).html();
   var allChap = doc.select('.novel_sublist2 a');
   const data = [];
   for (var i = 0; i < allChap.size(); i++) {
@@ -12,7 +12,7 @@ function execute(url) {
   }
   if (data.length == 0) {
     data.push({
-      name: "「短編」・「" + doc.select('.novel_title').text() + "」",
+      name: '「短編」・「' + doc.select('.novel_title').text() + '」',
       url: url,
       host: '',
     });

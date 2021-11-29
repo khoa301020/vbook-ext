@@ -1,23 +1,154 @@
 function execute() {
-    return Response.success([
-        {title: "異世界〔恋愛〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_101/", script: "gen.js"},
-        {title: "現実世界〔恋愛〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_102/", script: "gen.js"},
-        {title: "ハイファンタジー〔ファンタジー〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_201/", script: "gen.js"},
-        {title: "ローファンタジー〔ファンタジー〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_202/", script: "gen.js"},
-        {title: "純文学〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_301/", script: "gen.js"},
-        {title: "ヒューマンドラマ〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_302/", script: "gen.js"},
-        {title: "歴史〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_303/", script: "gen.js"},
-        {title: "推理〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_304/", script: "gen.js"},
-        {title: "ホラー〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_305/", script: "gen.js"},
-        {title: "アクション〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_306/", script: "gen.js"},
-        {title: "コメディー〔文芸〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_307/", script: "gen.js"},
-        {title: "VRゲーム〔SF〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_401/", script: "gen.js"},
-        {title: "宇宙〔SF〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_402/", script: "gen.js"},
-        {title: "空想科学〔SF〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_403/", script: "gen.js"},
-        {title: "パニック〔SF〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_404/", script: "gen.js"},
-        {title: "童話〔その他〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_9901/", script: "gen.js"},
-        {title: "詩〔その他〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_9902/", script: "gen.js"},
-        {title: "エッセイ〔その他〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_9903/", script: "gen.js"},
-        {title: "その他〔その他〕", input: "https://yomou.syosetu.com/rank/genrelist/type/monthly_9999/", script: "gen.js"},
-    ]);
+  return Response.success([
+    {
+      title: '「短編」',
+      input: 'https://api.syosetu.com/novelapi/api/?type=t&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '「連載中」',
+      input: 'https://api.syosetu.com/novelapi/api/?type=r&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '「完結済連載小説」',
+      input: 'https://api.syosetu.com/novelapi/api/?type=er&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '「すべての連載小説(連載中および完結済)」',
+      input: 'https://api.syosetu.com/novelapi/api/?type=re&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '「短編と完結済連載小説」',
+      input: 'https://api.syosetu.com/novelapi/api/?type=ter&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '〔恋愛〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=1&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '〔ファンタジー〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=2&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=3&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '〔SF〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=4&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '異世界〔恋愛〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=101&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '現実世界〔恋愛〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=102&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'ハイファンタジー〔ファンタジー〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=201&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'ローファンタジー〔ファンタジー〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=202&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '純文学〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=301&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'ヒューマンドラマ〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=302&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '歴史〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=303&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '推理〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=304&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'ホラー〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=305&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'アクション〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=306&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'コメディー〔文芸〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=307&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'VRゲーム〔SF〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=401&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '宇宙〔SF〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=402&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '空想科学〔SF〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=403&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'パニック〔SF〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=404&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '童話〔その他〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9901&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: '詩〔その他〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9902&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'エッセイ〔その他〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9903&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'リプレイ〔その他〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9904&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'その他〔その他〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9999&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+    {
+      title: 'ノンジャンル〔ノンジャンル〕',
+      input: 'https://api.syosetu.com/novelapi/api/?genre=9801&order=hyoka&out=json&lim=500',
+      script: 'gen.js',
+    },
+  ]);
 }
