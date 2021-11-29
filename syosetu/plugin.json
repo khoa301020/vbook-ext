@@ -7,7 +7,7 @@
     "regexp": "((yomou)|(ncode)).syosetu.com/(.*)$",
     "description": "小説を読もう！",
     "type": "novel",
-    "local": "ja-JP",
+    "locale": "ja-JP",
     "language": "javascript"
   },
   "script": {
