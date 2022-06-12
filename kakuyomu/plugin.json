@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Kakuyomu",
+    "author": "Beast666",
+    "version": 1,
+    "source": "https://kakuyomu.jp",
+    "regexp": "kakuyomu.jp/(.*)$",
+    "description": "書ける、読める、伝えられる！",
+    "type": "novel",
+    "locale": "ja-JP",
+    "language": "javascript"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}
