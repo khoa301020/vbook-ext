@@ -5,13 +5,31 @@
   },
   "data": [
     {
-      "name": "Shousetsu wo Yomou!",
+      "name": "Syosetu",
       "author": "Beast666",
       "path": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/plugin.zip",
       "version": 4,
       "source": "https://yomou.syosetu.com/",
       "icon": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/icon.png",
       "description": "小説を読もう！"
+    },
+    {
+      "name": "Hako Novel",
+      "author": "vBook",
+      "path": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/hako/plugin.zip",
+      "version": 7,
+      "source": "https://yomou.syosetu.com/",
+      "icon": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/hako/icon.png",
+      "description": "Chỉnh sửa lại chút từ ext Hako gốc của Darkrai9x"
+    },
+    {
+      "name": "Kakuyomu",
+      "author": "Beast666",
+      "path": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/kakuyomu/plugin.zip",
+      "version": 1,
+      "source": "https://yomou.syosetu.com/",
+      "icon": "https://raw.githubusercontent.com/khoa301020/vbook-ext/master/kakuyomu/icon.png",
+      "description": "書ける、読める、伝えられる！"
     }
   ]
 }
