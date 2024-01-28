@@ -1,19 +1,19 @@
+load('config.js');
+load('helper.js');
 function execute(key) {
-  var api = 'https://api.syosetu.com/novelapi/api/?title=1&word=' + key + '&out=json&lim=500';
-  var json = JSON.parse(fetch(api).text());
+  const api = queryBuilder({ title: 1, word: key, of: 't-n-gp-nt-ga', lim: 500 });
+  const json = JSON.parse(fetch(api).text());
+  const novelList = json.slice(1);
 
-  var novelList = [];
-
-  for (var i = 1; i < json.length; i++) {
-    var novel = json[i];
-    novelList.push({
-      name: novel.title,
-      link: novel.ncode,
-      description:
-        novel.global_point.toString() + 'pt・' + (json[1].novel_type == 2 ? '短編' : novel.general_all_no + '部分'),
-      cover: 'https://raw.githubusercontent.com/khoa301020/vbook-ext/master/syosetu/cover.jpg',
-      host: 'https://ncode.syosetu.com/',
-    });
-  }
-  return Response.success(novelList);
+  return Response.success(
+    novelList.map((novel) => ({
+      name: htmlDecode(novel.title),
+      link: `${BASE_URL}/${novel.ncode.toLowerCase()}/`,
+      description: `${novel.global_point.toString()}pt・${novelType(
+        novel.novel_type || novel.noveltype,
+        novel.general_all_no,
+      )}`,
+      cover: COVER,
+    })),
+  );
 }

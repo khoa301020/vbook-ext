@@ -1,36 +1,39 @@
+load('config.js');
+load('helper.js');
 function execute(url) {
-    const doc = fetch(url).html();
-    var allChap = doc.select('.novel_sublist2 a,.chapter_title');
-    const data = [];
-    var chapterName = ""
-    // for (var i = 0; i < allChap.size(); i++) {
-    //     var chap = allChap.get(i);
+  const doc = fetch(url.toLowerCase()).html();
 
-    //     data.push({
-    //         name: chap.select('a').text(),
-    //         url: chap.attr('href'),
-    //         host: 'http://ncode.syosetu.com',
-    //     });
-    // }
-    for (var i = 0; i < allChap.size(); i++) {
-        var chap = allChap.get(i);
-        if (chap.select('a').text() == "") {
-            chapterName = "【" + chap.text() + "】\n\n";
-        } else {
-            data.push({
-                name: chapterName + chap.select('a').text(),
-                url: chap.attr('href'),
-                host: 'http://ncode.syosetu.com',
-            });
-            chapterName = "";
-        }
+  // Extract chapters and episodes
+  const listAll = doc.select('.novel_sublist2 a,.chapter_title');
+
+  // Check if the novel is a short story
+  if (listAll.size() == 0) {
+    const title = htmlDecode(doc.select('.novel_title').text());
+    return Response.success([
+      {
+        url,
+        name: `「短編」・${title}`,
+      },
+    ]);
+  }
+
+  // Build chapters and episodes
+  let chapterName = '';
+  const listChapters = [];
+
+  for (var i = 0; i < listAll.size(); i++) {
+    var chap = listAll.get(i);
+    if (chap.select('a').text() == '') {
+      chapterName = '【' + chap.text() + '】\n\n';
+    } else {
+      listChapters.push({
+        name: chapterName + chap.select('a').text(),
+        url: chap.attr('href'),
+        host: BASE_URL,
+      });
+      chapterName = '';
     }
-    if (data.length == 0) {
-        data.push({
-            name: '「短編」・「' + doc.select('.novel_title').text() + '」',
-            url: url,
-            host: '',
-        });
-    }
-    return Response.success(data);
+  }
+
+  return Response.success(listChapters);
 }
